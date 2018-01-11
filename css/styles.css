@@ -10,3 +10,7 @@
   text-align:center;
   margin-left: 42.5%;
 }
+
+#num2Div {
+  display: none;
+}
