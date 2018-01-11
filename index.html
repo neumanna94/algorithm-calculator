@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Algorithm Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Algorithm Calculator</h1>
+      </div>
+      <div class="col-md-12">
+        <form id="calculate">
+          <div class="form-group">
+            <label for="num1">1st number:</label>
+            <input id="num1" class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label for="num2">2nd number:</label>
+            <input id="num2" class="form-control" type="text">
+          </div>
+          <select class="form-control" id="operators">
+            <option value="1">Fibonacci Sequence</option>
+            <option value="2">Insert Sort Algorithm</option>
+            <option value="3">Newtons Method</option>
+          </select>
+          <button type="submit" id="calc-btn">Calculate</button>
+      </div>
+    </div>
+  </body>
+</html>

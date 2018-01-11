@@ -1,0 +1,12 @@
+.jumbotron h1 {
+  text-align: center;
+}
+.col-md-12 {
+  width: 50%;
+  text-align: left;
+  margin-left: 25%;
+}
+#calc-btn {
+  text-align:center;
+  margin-left: 42.5%;
+}
