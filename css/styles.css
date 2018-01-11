@@ -7,10 +7,21 @@
   margin-left: 25%;
 }
 #calc-btn {
+  width: 50%;
   text-align:center;
-  margin-left: 42.5%;
+  margin-left: 25%;
 }
 
 #num2Div {
   display: none;
+}
+#disp {
+  width: 50%;
+  text-align:center;
+  margin-left: 25%;
+}
+
+.graphic #myCanvas {
+  margin-left: -50%;
+  margin-top: 25%;
 }

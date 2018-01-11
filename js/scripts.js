@@ -17,8 +17,15 @@ function fibArrayWithFibIterator(inputIteration){
   return fibArray;
 }
 
-function newtonApproximation(inputEquation) {
+function newtonApproximation(ax3, bx2, cx, d) {
   return 1;
+}
+
+//Input
+function derivative(inputFunction,x,dx){
+  f = inputFunction;
+  result = (f(x+dx)-f(x))/dx
+  return result;
 }
 //https://www.geeksforgeeks.org/insertion-sort/
 function insertSort(inputArray){
@@ -31,6 +38,7 @@ function insertSort(inputArray){
       inputArray[k+1] = inputArray[k];
       k = k-1;
     }
+
     inputArray[k+1]=key;
   }
   return inputArray.toString();
@@ -40,8 +48,8 @@ function randArrayGenerator (size, maxNumber){
   var appendMe;
   for(var i = 1; i < size; i ++){
     appendMe = Math.round(Math.rand()*MaxNumber)
+    randArray.push(appendMe);
   }
-  randArray.push(appendMe);
   return randArray;
 }
 
@@ -51,6 +59,10 @@ function selectorFunction(valToCalculate, selector){
   } else if(selector==2){
     var result = insertSort(stringArrayToArray(valToCalculate));
     return "[" + result + "]";
+  } else if(selector==4) {
+    fibArray = [];
+    return fibArrayWithFibIterator(valToCalculate);
+
   } else {
     return newtonApproximation(valToCalculate);
   }
@@ -61,14 +73,36 @@ function stringArrayToArray(inputArray){
   return JSON.parse(inputArray);
 }
 
+
+function drawRectange(canvas){
+  var arrLength = fibArray.length;
+  var s;
+  var lastS = 1*10;
+  var x = 100;
+  var y = 100;
+  canvas.rect(0,0,10,10);
+
+  for(var i=1; i <arrLength; i++){
+    s = fibArray[i]*10;
+    if(i%2 != 0){
+      canvas.rect(0,lastS,s,s);
+    } else {
+      canvas.rect(lastS,0,s,s);
+    }
+    lastS = s;
+  }
+  canvas.stroke();
+
+}
 $(document).ready(function(){
   $("#operators").change(function(){
     operator = $("#operators").val();
-    console.log(operator);
     if(operator==1){
       $("#num1Div label").text("Enter an Iteration of the Fibonacci Sequence you want to know!");
     } else if(operator==2){
       $("#num1Div label").text("Enter an Array to Sort!");
+    } else if(operator==4) {
+      $("#num1Div label").text("Enter an Iteration of the Fibonacci Sequence to go up to!");
     } else {
       $("#num1Div label").text("Enter an equation you want to find the roots of.");
     }
@@ -76,8 +110,13 @@ $(document).ready(function(){
   $("form#calculate").submit(function(event) {
     event.preventDefault();
     var num1 = $("#num1").val();
-    console.log(num1);
-    console.log(operator);
-    alert(selectorFunction(num1, operator));
+    var result = ""
+    result = selectorFunction(num1,operator);
+    alert(result);
+  });
+  $("button#disp").click(function(event) {
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    drawRectange(ctx);
   });
 });
