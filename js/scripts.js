@@ -18,14 +18,23 @@ var fibArrayWithFibIterator = function(inputIteration){
 var newtonApproximation = function(inputEquation){
 
 }
-
+//https://www.geeksforgeeks.org/insertion-sort/
 var insertSort = function(inputArray){
-
+  var n = inputArray.length;
+  var i, k;
+  for(i = 1; i <n; i ++){
+    key = inputArray[i];
+    k=i-1;
+    while(k>=0 && inputArray[k] > key) {
+      inputArray[k+1] = inputArray[k];
+      k = k-1;
+    }
+    inputArray[k+1]=key;
+  }
+  return inputArray.toString();
 }
 
 $(document).ready(function(){
-
-
 
 
 
