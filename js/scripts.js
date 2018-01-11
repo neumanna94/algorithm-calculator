@@ -1,7 +1,8 @@
-var fibArray = [];
+var fibArray = [1,1,2,3,5,8,13,21,34,55];
 var randArray = [];
 var operator = 1;
 //Finds nth iteration
+
 function fibIterator(inputIteration){
   if (inputIteration <= 1){
     return inputIteration;
@@ -16,11 +17,6 @@ function fibArrayWithFibIterator(inputIteration){
   }
   return fibArray;
 }
-
-function newtonApproximation(ax3, bx2, cx, d) {
-  return 1;
-}
-
 //Input
 function derivative(inputFunction,x,dx){
   f = inputFunction;
@@ -43,7 +39,6 @@ function insertSort(inputArray){
   }
   return inputArray.toString();
 }
-
 function randArrayGenerator (size, maxNumber){
   var appendMe;
   for(var i = 1; i < size; i ++){
@@ -64,26 +59,26 @@ function selectorFunction(valToCalculate, selector){
     return fibArrayWithFibIterator(valToCalculate);
 
   } else {
-    return newtonApproximation(valToCalculate);
+    return 1;
   }
 }
-
 function stringArrayToArray(inputArray){
   // inputArray = inputArray.substring(1, inputArray.length-1);
   return JSON.parse(inputArray);
 }
-
-
 function drawRectange(canvas){
+  canvas.clearRect(0,0,canvas.width,canvas.height);
   var arrLength = fibArray.length;
   var s;
-  var lastS = 1*10;
+  var size = 10;
+  var lastS = size;
   var x = 100;
   var y = 100;
-  canvas.rect(0,0,10,10);
+
+  canvas.rect(0,0,size,size);
 
   for(var i=1; i <arrLength; i++){
-    s = fibArray[i]*10;
+    s = fibArray[i]*size;
     if(i%2 != 0){
       canvas.rect(0,lastS,s,s);
     } else {
@@ -92,7 +87,6 @@ function drawRectange(canvas){
     lastS = s;
   }
   canvas.stroke();
-
 }
 $(document).ready(function(){
   $("#operators").change(function(){
@@ -117,6 +111,7 @@ $(document).ready(function(){
   $("button#disp").click(function(event) {
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");
+    ctx.font = "10px Arial";
     drawRectange(ctx);
   });
 });
